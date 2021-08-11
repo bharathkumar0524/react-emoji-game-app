@@ -3,6 +3,8 @@ import './index.css'
 
 class NavBar extends Component {
   render() {
+    const {newEmojisList, topScore, isGameEnd} = this.props
+    const score = newEmojisList.length
     return (
       <nav className="nav-bar-container">
         <div className="logo-score-container">
@@ -14,6 +16,12 @@ class NavBar extends Component {
             />
             <h1 className="logo-heading">Emoji Game</h1>
           </div>
+          {isGameEnd ? null : (
+            <div className="scores-container">
+              <p className="score">Score: {score}</p>
+              <p className="score">Top Score: {topScore}</p>
+            </div>
+          )}
         </div>
       </nav>
     )
